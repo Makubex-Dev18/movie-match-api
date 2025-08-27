@@ -5,7 +5,6 @@ import { traerPeliculasConteo } from "../controllers/traerPeliculasConteo.contro
 import { traerPeliculasTitulo } from "../controllers/traerPeliculasTitulo.controller.js";
 import { traerPeliculasRatingTop } from "../controllers/traerPeliculasRatingTop.controller.js";
 import { traerPeliculasRatingLow } from "../controllers/traerPeliculasRatingLow.controller.js";
-import { traerPeliculasYear2000 } from "../controllers/traerPeliculasYear2000.controller.js";
 import { traerPeliculasID } from "../controllers/traerPeliculasID.controller.js";
 import { traerPeliculasYear } from "../controllers/traerPelliculasYear.controller.js";
 import { crearPeliculas } from "../controllers/crearPeliculas.controller.js";
@@ -20,9 +19,8 @@ api.get("/peliculas", traerPeliculas);
 api.get("/peliculas/count", traerPeliculasConteo);
 api.get("/peliculas/rating-top", traerPeliculasRatingTop);
 api.get("/peliculas/rating-low", traerPeliculasRatingLow);
-api.get("/peliculas/year2000", traerPeliculasYear2000);
 
-api.get("/peliculas/:titulo", traerPeliculasTitulo);
+api.get("/peliculas/titulo/:titulo", traerPeliculasTitulo);
 api.get("/peliculas/:id", traerPeliculasID);
 api.get("/peliculas/year/:year", traerPeliculasYear);
 

@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: Movie Match API
+  version: 1.0.0
+  description: API para gestionar películas
+servers:
+  - url: http://localhost:3000
+paths:
+  /peliculas:
+    get:
+      summary: Obtener todas las películas
+      responses:
+        "200":
+          description: Lista de películas
+  /peliculas/count:
+    get:
+      summary: Obtener el conteo de películas
+      responses:
+        "200":
+          description: Conteo de películas
+  /peliculas/rating-top:
+    get:
+      summary: Obtener películas con mejor rating
+      responses:
+        "200":
+          description: Lista de películas con mejor rating
+  /peliculas/rating-low:
+    get:
+      summary: Obtener películas con peor rating
+      responses:
+        "200":
+          description: Lista de películas con peor rating
+  /peliculas/titulo/{titulo}:
+    get:
+      summary: Obtener película por título
+      parameters:
+        - in: path
+          name: titulo
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Película encontrada por título
+        "404":
+          description: Película no encontrada
+  /peliculas/{id}:
+    get:
+      summary: Obtener película por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Película encontrada por ID
+        "404":
+          description: Película no encontrada
+  /peliculas/year/{year}:
+    get:
+      summary: Obtener películas por año
+      parameters:
+        - in: path
+          name: year
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Lista de películas por año
+  /crear-pelicula:
+    post:
+      summary: Crear una nueva película
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                titulo:
+                  type: string
+                year:
+                  type: integer
+                rating:
+                  type: number
+      responses:
+        "201":
+          description: Película creada
+  /actualizar-pelicula/{id}:
+    put:
+      summary: Actualizar una película existente
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                titulo:
+                  type: string
+                year:
+                  type: integer
+                rating:
+                  type: number
+      responses:
+        "200":
+          description: Película actualizada
+        "404":
+          description: Película no encontrada
+  /eliminar-pelicula/{id}:
+    delete:
+      summary: Eliminar una película
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Película eliminada
+        "404":
+          description: Película no encontrada
