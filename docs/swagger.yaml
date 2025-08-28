@@ -6,6 +6,55 @@ info:
 servers:
   - url: http://localhost:3000
 paths:
+  /peliculas/directores:
+    get:
+      summary: Obtener todos los directores ordenados ascendentemente
+      responses:
+        "200":
+          description: Lista de directores ordenados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  directores:
+                    type: array
+                    items:
+                      type: string
+
+  /peliculas/generos:
+    get:
+      summary: Obtener todos los géneros ordenados ascendentemente
+      responses:
+        "200":
+          description: Lista de géneros ordenados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  generos:
+                    type: array
+                    items:
+                      type: string
+
+  /peliculas/generosCount:
+    get:
+      summary: Obtener el conteo de películas por género y el total
+      responses:
+        "200":
+          description: Conteo de películas por género y total
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conteo:
+                    type: object
+                    additionalProperties:
+                      type: integer
+                  total:
+                    type: integer
   /peliculas:
     get:
       summary: Obtener todas las películas

@@ -10,6 +10,9 @@ import { traerPeliculasYear } from "../controllers/traerPelliculasYear.controlle
 import { crearPeliculas } from "../controllers/crearPeliculas.controller.js";
 import { actualizarPeliculas } from "../controllers/actualizarPeliculas.controller.js";
 import { eliminarPeliculas } from "../controllers/eliminarPeliculas.controller.js";
+import { traerDirectores } from "../controllers/traerDirectores.controller.js";
+import { traerGeneros } from "../controllers/traerGeneros.controller.js";
+import { traerGenerosCount } from "../controllers/traerGenerosCount.controller.js";
 
 //crea la instancia del router
 export const api = Router();
@@ -19,6 +22,11 @@ api.get("/peliculas", traerPeliculas);
 api.get("/peliculas/count", traerPeliculasConteo);
 api.get("/peliculas/rating-top", traerPeliculasRatingTop);
 api.get("/peliculas/rating-low", traerPeliculasRatingLow);
+
+api.get("/peliculas/directores", traerDirectores);
+api.get("/peliculas/generos", traerGeneros);
+api.get("/peliculas/generosCount",traerGenerosCount);
+
 
 api.get("/peliculas/titulo/:titulo", traerPeliculasTitulo);
 api.get("/peliculas/:id", traerPeliculasID);

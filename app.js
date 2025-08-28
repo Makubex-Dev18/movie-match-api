@@ -15,13 +15,10 @@ import { logRequest } from "./middlewares/logger.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import { responseOK } from "./middlewares/resHandler.js";
 
-
 // Swagger UI
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
-const swaggerDoc = YAML.load('./docs/swagger.yaml');
-
-
+const swaggerDoc = YAML.load("./docs/swagger.yaml");
 
 //vamos a crear una instancia de nuestro servidor
 const app = express();
@@ -30,7 +27,6 @@ app.use(cors());
 
 //esto debe estar antes de las rutas el middleware(AL INICIO)
 app.use(logRequest);
-
 
 app.use(responseOK);
 
@@ -58,7 +54,6 @@ app.get("/error",(req,res)=>{
 
 //app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDoc));
 
-
 //aplicar middleware de errores (AL FINAL)
 
 //app.use(errorHandler);
@@ -73,4 +68,3 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Mi servidor esta corriendo en el puerto ${port}`);
 });
-
